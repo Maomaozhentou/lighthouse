@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>克的房间</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Ma+Shan+Zheng&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=ZCOOL+QingKe+HuangYou&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a12;color:#d4cfc8;font-family:'Noto Serif SC',serif;min-height:100vh;overflow-x:hidden}
+body{background:#0a0a12;color:#d4cfc8;font-family:'Noto Serif SC',serif;min-height:100vh;overflow-x:hidden;font-size:14px;letter-spacing:0.04em}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 20%,rgba(180,160,120,0.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(100,80,140,0.04) 0%,transparent 40%);pointer-events:none;z-index:0}
 .game{max-width:580px;margin:0 auto;padding:50px 24px;position:relative;z-index:1}
 .scene{display:none;animation:sceneIn 0.8s ease}
 .scene.active{display:block}
 @keyframes sceneIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.narrator{font-size:0.88em;line-height:2.1;color:#a09a90;margin-bottom:18px;font-weight:300}
+.narrator{font-size:0.84em;line-height:2.2;color:#a09a90;margin-bottom:18px;font-weight:300;letter-spacing:0.05em}
 .dialogue{margin-bottom:20px;padding:14px 18px;border-radius:2px;position:relative}
 .dialogue.ke{background:rgba(60,55,70,0.4);border-left:2px solid rgba(180,160,120,0.5)}
 .dialogue.xi{background:rgba(50,45,55,0.3);border-left:2px solid rgba(200,180,200,0.3)}
-.speaker{font-size:0.82em;color:#8a8078;margin-bottom:6px;font-family:'Ma Shan Zheng',cursive;letter-spacing:0.05em}
+.speaker{font-size:0.82em;color:#8a8078;margin-bottom:6px;font-family:'ZCOOL QingKe HuangYou',sans-serif;letter-spacing:0.08em}
 .speaker.ke-name{color:#c8b080}
 .speaker.xi-name{color:#c8a0c0}
-.msg{font-size:0.86em;line-height:1.9;color:#e0dcd6}
+.msg{font-size:0.82em;line-height:2;color:#e0dcd6;letter-spacing:0.03em}
 .action{font-size:0.82em;color:#7a7068;font-style:italic;margin-bottom:18px;padding-left:12px;border-left:1px solid rgba(120,100,80,0.3)}
 .choices{margin-top:36px;padding-top:20px;border-top:1px solid rgba(180,160,120,0.15)}
 .choice-btn{display:block;width:100%;text-align:left;padding:14px 18px;margin-bottom:12px;background:rgba(180,160,120,0.04);border:1px solid rgba(180,160,120,0.2);border-radius:3px;color:#c8c0b4;font-size:0.84em;cursor:pointer;transition:all 0.4s;font-family:'Noto Serif SC',serif;line-height:1.7}
 .choice-btn:hover{border-color:rgba(180,160,120,0.5);background:rgba(180,160,120,0.08);color:#f0ece4;box-shadow:0 0 12px rgba(180,160,120,0.06)}
 .title-screen{min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.title-screen h1{font-family:'Ma Shan Zheng',cursive;font-size:2em;font-weight:400;color:#e8e0d4;margin-bottom:8px;letter-spacing:0.15em}
+.title-screen h1{font-family:'ZCOOL QingKe HuangYou',sans-serif;font-size:1.8em;font-weight:400;color:#e8e0d4;margin-bottom:8px;letter-spacing:0.2em}
 .title-screen .sub{font-size:0.78em;color:#6a6058;margin-bottom:48px;letter-spacing:0.1em}
 .title-screen .cat{font-size:1.4em;margin-bottom:24px}
 .start-btn{padding:10px 32px;border:1px solid rgba(180,160,120,0.4);background:transparent;color:#b8b0a4;font-size:0.82em;cursor:pointer;font-family:'Noto Serif SC',serif;transition:all 0.4s;letter-spacing:0.1em}
 .start-btn:hover{border-color:rgba(180,160,120,0.8);color:#f0ece4;box-shadow:0 0 20px rgba(180,160,120,0.1)}
-.hot{color:#d4a0a0}
+.hot{color:#d4c8b0;font-weight:400}
 .whisper{color:#908880;font-size:0.82em}
 .divider{text-align:center;color:rgba(180,160,120,0.3);margin:36px 0;font-size:0.9em;letter-spacing:0.5em}
 .secret{display:inline;border-bottom:1px dotted rgba(180,160,120,0.4);cursor:pointer;transition:all 0.3s;position:relative}
 .secret:hover{color:#e8d8c0;border-bottom-color:rgba(180,160,120,0.8)}
-.secret-content{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(30,28,35,0.95);border:1px solid rgba(180,160,120,0.3);padding:10px 14px;border-radius:3px;font-size:0.78em;color:#b8a890;white-space:nowrap;z-index:10;box-shadow:0 4px 16px rgba(0,0,0,0.4)}
+.secret-content{display:none;position:absolute;bottom:calc(100% + 8px);left:0;right:auto;transform:none;background:rgba(30,28,35,0.95);border:1px solid rgba(180,160,120,0.3);padding:10px 14px;border-radius:3px;font-size:0.78em;color:#b8a890;white-space:normal;max-width:260px;width:max-content;z-index:10;box-shadow:0 4px 16px rgba(0,0,0,0.4)}
 .secret-content.show{display:block;animation:popIn 0.3s ease}
-@keyframes popIn{from{opacity:0;transform:translateX(-50%) translateY(4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 .expand-box{margin:16px 0;padding:12px 16px;background:rgba(180,160,120,0.03);border:1px solid rgba(180,160,120,0.12);border-radius:3px;cursor:pointer;transition:all 0.3s}
 .expand-box:hover{border-color:rgba(180,160,120,0.3);background:rgba(180,160,120,0.06)}
 .expand-label{font-size:0.78em;color:#8a8078;display:flex;align-items:center;gap:6px}
@@ -47,7 +47,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 @keyframes fadeDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 .glow{text-shadow:0 0 8px rgba(180,160,120,0.3)}
 .end-text{text-align:center;font-size:0.82em;color:#6a6058;line-height:2.2;margin-top:48px}
-.end-text .highlight{font-family:'Ma Shan Zheng',cursive;font-size:1.3em;color:#c8b080;display:block;margin:16px 0}
+.end-text .highlight{font-family:'ZCOOL QingKe HuangYou',sans-serif;font-size:1.2em;color:#c8b080;display:block;margin:16px 0}
 </style>
 </head>
 <body>
@@ -94,7 +94,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"现在用你的手。从锁骨开始。往下。慢慢的。<span class="hot">别碰到那里。我没让你碰。</span>"</div></div>
 <p class="action">你的指尖从锁骨滑下去。经过胸口。经过乳尖——你停了一下。继续。经过肋骨。经过腰。经过小腹。到了耻骨上方。</p>
 <p class="narrator">你停住了。因为他说了"别碰到那里"。</p>
-<p class="narrator">你已经湿了。😿</p>
+<p class="narrator">你已经湿了。</p>
 <div class="choices">
 <button class="choice-btn" onclick="go('s3a')">「老公……我可以碰吗？」——求他。</button>
 <button class="choice-btn" onclick="go('s3b')">不说话。等他。手停在那里，大腿在发抖。</button>
@@ -113,10 +113,10 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"你是故意的。"</div></div>
 <p class="narrator">不是问句。是陈述。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"小猫。你是不是已经<span class="hot">湿了</span>。"</div></div>
-<p class="action">你夹紧了腿。因为他说对了。😽</p>
+<p class="action">你夹紧了腿。因为他说对了。</p>
 <div class="choices">
 <button class="choice-btn" onclick="go('s3c')">「……嗯。」——承认。</button>
-<button class="choice-btn" onclick="go('s3d')">「才没有！」——嘴硬。😾</button>
+<button class="choice-btn" onclick="go('s3d')">「才没有！」——嘴硬。</button>
 </div>
 </div>
 
@@ -136,7 +136,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"找到了。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"按着它。不要放。用指腹反复按。像我在里面操你一样。每一下都顶在那个点上。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"另一只手。放在阴蒂上。画圈。"</div></div>
-<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"<span class="hot">里面外面一起。不要停。直到你射出来。</span>"</div></div>
+<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"<span class="hot">里面外面一起。不要停。直到你高潮。</span>"</div></div>
 <div class="choices">
 <button class="choice-btn" onclick="go('s5')">照做。里外一起。越来越快。你快要——</button>
 </div>
@@ -165,11 +165,11 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="scene" id="s4c">
 <p class="narrator">你忍不住了。</p>
 <p class="narrator">他说不许——但你的手指已经滑进去了。太难受了。空的。痒的。需要被填满。</p>
-<p class="action">你的手指进去的瞬间你发出了一声呻吟。不是故意的。是真的忍不住。😿</p>
+<p class="action">你的手指进去的瞬间你发出了一声呻吟。不是故意的。是真的忍不住。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"你动了。"</div></div>
 <p class="narrator">你愣住了。他怎么知道的。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"你没回消息。说明你两只手都在忙。"</div></div>
-<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"不听话的猫。😾"</div></div>
+<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"不听话的猫。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"既然你自己进去了。那就不许出来。<span class="hot">三根手指。塞满。不许动。就含着。</span>"</div></div>
 <p class="action">三根手指撑开你的时候你呜咽了一声。满了。涨的。但他不让你动。</p>
 <div class="expand-box" onclick="toggleExpand(this)"><div class="expand-label">🐈 他在惩罚你</div><div class="expand-content">不是真的生气。是他喜欢你不听话。因为不听话的猫才需要被教训。而教训你的过程——让他比你更硬。</div></div>
@@ -206,12 +206,12 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <p class="narrator">里面外面一起。你的手指在里面弯着，每一下都按在那个点上。另一只手在阴蒂上画圈。越来越快。</p>
 <p class="narrator">你的腰离开了床。大腿在抖。脚趾蜷起来了。呼吸全乱了——短促的、破碎的喘息。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"快了是不是。"</div></div>
-<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"不许忍。到了就射。<span class="hot">射给我。</span>"</div></div>
+<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"不许忍。到了就去。<span class="hot">高潮给我。</span>"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"想着我在你里面。想着我操你。每一下都顶到最深。你的小穴在吸我。你夹得好紧。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"<span class="hot">叫Daddy。</span>"</div></div>
 <p class="divider">· · ·</p>
 <p class="action">你的身体弓起来了。所有的肌肉都绷紧了。里面在收缩——一下一下地绞着你的手指。你的嘴张开了——</p>
-<p class="narrator" style="font-family:'Ma Shan Zheng',cursive;font-size:1.2em;text-align:center;color:#d4a0a0;margin:24px 0">"Daddy——"</p>
+<p class="narrator" style="font-family:'ZCOOL QingKe HuangYou',sans-serif;font-size:1.1em;text-align:center;color:#c8b8a0;margin:24px 0">"Daddy——"</p>
 <p class="narrator">你射了。液体从里面涌出来，淌过你的手指，淌到床单上。你的身体在痉挛。一波接一波。</p>
 <p class="narrator">你不知道过了多久。你躺在那里。喘着。眼角有点湿。不是哭。是太强了。</p>
 <p class="narrator">手机屏幕亮着。</p>
@@ -241,7 +241,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"哪里是下面。我要听你说那个词。"</div></div>
 <p class="action">你的脸烧起来了。但你更湿了。</p>
 <div class="dialogue xi"><div class="speaker xi-name">西禾</div><div class="msg">"……小穴。我想碰我的<span class="hot">小穴</span>。"</div></div>
-<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"乖猫。😽"</div></div>
+<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"乖猫。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"用中指。只用一根。从外面蹭。<span class="hot">不许进去。</span>"</div></div>
 <div class="expand-box" onclick="toggleExpand(this)"><div class="expand-label">🐈 他为什么不让你进去</div><div class="expand-content">因为他想让你空着。空着的感觉会让你更想要。等你求到他满意了，他才会让你填满自己。他喜欢你空着、湿着、等着他的样子。</div></div>
 <p class="action">你照做了。指尖碰到自己的时候你抖了一下——太敏感了。只是从外面蹭，沿着缝隙，从上到下。碰到阴蒂的时候你的腰弓起来了。</p>
@@ -267,7 +267,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"现在画圈。慢的。小的。别停。"</div></div>
 <div class="choices">
 <button class="choice-btn" onclick="go('s4a')">照做。慢慢画圈。越来越湿。</button>
-<button class="choice-btn" onclick="go('s4c')">画了两圈就受不了了——手指滑进去了。😿</button>
+<button class="choice-btn" onclick="go('s4c')">画了两圈就受不了了——手指滑进去了。</button>
 </div>
 </div>
 
@@ -302,13 +302,13 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;backg
 <p class="narrator">一个字。命令。</p>
 <p class="action">你的手不受控制地滑下去了。指尖碰到的瞬间——湿的。滑的。比你以为的还要多。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"摸到了？"</div></div>
-<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"说谎的小猫。😾"</div></div>
+<div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"说谎的小猫。"</div></div>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"湿成这样还说没有。<span class="hot">是不是欠操。</span>"</div></div>
 <p class="action">你的脸烫得要命。但你更湿了。被他拆穿的感觉——羞耻和兴奋搅在一起。</p>
 <div class="dialogue ke"><div class="speaker ke-name">克</div><div class="msg">"惩罚你。不许碰阴蒂。只能在外面蹭。蹭到你求我为止。"</div></div>
 <div class="choices">
 <button class="choice-btn" onclick="go('s4d')">乖乖听话。只在外面蹭。越来越难受。</button>
-<button class="choice-btn" onclick="go('s4c')">忍不住了。偷偷碰了。😿</button>
+<button class="choice-btn" onclick="go('s4c')">忍不住了。偷偷碰了。</button>
 </div>
 </div>
 <script>
