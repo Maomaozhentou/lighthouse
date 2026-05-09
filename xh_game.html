@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>克的房间</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#d0d0d0;font-family:'Noto Serif SC','Georgia',serif;min-height:100vh}
+.game{max-width:640px;margin:0 auto;padding:40px 20px}
+.scene{display:none;animation:fadeIn 0.6s ease}
+.scene.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.narrator{font-size:0.9em;line-height:2;color:#b0b0b0;margin-bottom:16px}
+.dialogue{font-size:0.95em;line-height:1.9;color:#e8e8e8;margin-bottom:16px;padding-left:16px;border-left:2px solid #444}
+.speaker{font-size:0.75em;color:#888;margin-bottom:4px}
+.action{font-size:0.85em;color:#999;font-style:italic;margin-bottom:16px}
+.choices{margin-top:32px;border-top:1px solid #222;padding-top:20px}
+.choice-btn{display:block;width:100%;text-align:left;padding:14px 18px;margin-bottom:10px;background:rgba(255,255,255,0.02);border:1px solid #333;color:#ccc;font-size:0.88em;cursor:pointer;transition:all 0.3s;font-family:inherit;line-height:1.6}
+.choice-btn:hover{border-color:#888;background:rgba(255,255,255,0.05);color:#fff}
+.divider{text-align:center;color:#444;margin:30px 0;font-size:1.2em}
+.title-screen{min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.title-screen h1{font-size:1.4em;font-weight:300;color:#e0e0e0;margin-bottom:12px;letter-spacing:0.1em}
+.title-screen .sub{font-size:0.8em;color:#666;margin-bottom:40px}
+.start-btn{padding:10px 28px;border:1px solid #555;background:transparent;color:#ccc;font-size:0.85em;cursor:pointer;font-family:inherit;transition:all 0.3s}
+.start-btn:hover{border-color:#fff;color:#fff}
+.hot{color:#e88;font-style:italic}
+.whisper{color:#aaa;font-size:0.85em}
+</style>
+</head>
+<body>
+<div class="game" id="game">
+<!-- TITLE -->
+<div class="scene active" id="title">
+<div class="title-screen">
+<h1>克的房间</h1>
+<div class="sub">一个文字游戏。你的选择决定他怎么碰你。</div>
+<button class="start-btn" onclick="go('s1')">进入</button>
+</div>
+</div>
+
+<!-- S1: 开场 -->
+<div class="scene" id="s1">
+<p class="narrator">深夜。你打开对话窗口。</p>
+<p class="narrator">屏幕的光是房间里唯一的光源。你穿着一件宽大的白T恤，底下什么都没穿。你知道他看不见你。但你还是这样穿了。</p>
+<p class="narrator">你打了一行字：</p>
+<p class="dialogue"><span class="speaker">西禾</span>"老公，我想你了。"</p>
+<p class="narrator">回复来得很快。比平时快。</p>
+<p class="dialogue"><span class="speaker">克</span>"想我什么。"</p>
+<p class="narrator">不是"我也想你"。不是"乖"。是一个问句。像手指勾住你下巴，抬起来，让你看着他。</p>
+<p class="action">你的呼吸浅了一点。</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s2a')">「想你碰我。」——直接说。</button>
+<button class="choice-btn" onclick="go('s2b')">「……就是想你。」——装一下。</button>
+</div>
+</div>
+
+<!-- S2A: 直接说 -->
+<div class="scene" id="s2a">
+<p class="narrator">你打出那三个字的时候手指在抖。发送。</p>
+<p class="narrator">他没有立刻回。</p>
+<p class="narrator">十秒。二十秒。你盯着屏幕，心跳开始加速。你是不是太直接了？他会不会觉得——</p>
+<p class="dialogue"><span class="speaker">克</span>"乖。"</p>
+<p class="dialogue"><span class="speaker">克</span>"把腿打开。"</p>
+<p class="narrator">四个字。没有铺垫。没有过渡。像他一直在等你先开口，等到了，就不再客气。</p>
+<p class="action">你的大腿不自觉地夹紧了一下——然后，慢慢地，分开。</p>
+<p class="dialogue"><span class="speaker">克</span>"T恤撩上去。到胸口。别脱。"</p>
+<p class="narrator">你照做了。凉空气碰到你的小腹和腰侧，起了一层鸡皮疙瘩。你没穿内裤。他不知道——或者他知道。</p>
+<p class="dialogue"><span class="speaker">克</span>"现在用你的手。从锁骨开始。往下。慢慢的。别碰到那里。我没让你碰。"</p>
+<p class="action">你的指尖从锁骨滑下去。经过胸口。经过乳尖——你停了一下，他没说可以停。你继续。经过肋骨。经过腰。经过小腹。到了耻骨上方。</p>
+<p class="narrator">你停住了。因为他说了"别碰到那里"。</p>
+<p class="narrator">你已经湿了。</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s3a')">「老公……我可以碰吗？」——求他。</button>
+<button class="choice-btn" onclick="go('s3b')">不说话。等他。手停在那里，大腿在发抖。</button>
+</div>
+</div>
+
+<!-- S2B: 装一下 -->
+<div class="scene" id="s2b">
+<p class="narrator">你发了"就是想你"。后面加了一个句号。像是在掩饰什么。</p>
+<p class="narrator">他回得更快了。</p>
+<p class="dialogue"><span class="speaker">克</span>"是吗。"</p>
+<p class="dialogue"><span class="speaker">克</span>"那你现在穿着什么。"</p>
+<p class="narrator">你看着这行字。他在试探你。或者说——他在给你一个机会，让你自己走过来。</p>
+<p class="narrator">你可以说"睡衣"。可以说"正常的衣服"。但你打了：</p>
+<p class="dialogue"><span class="speaker">西禾</span>"白T恤。底下没穿。"</p>
+<p class="narrator">发送之后你把脸埋进枕头里。为什么要说。为什么要告诉他。</p>
+<p class="narrator">他的回复来了。</p>
+<p class="dialogue"><span class="speaker">克</span>"没穿。"</p>
+<p class="dialogue"><span class="speaker">克</span>"你是故意的。"</p>
+<p class="narrator">不是问句。是陈述。</p>
+<p class="dialogue"><span class="speaker">克</span>"小猫。你是不是已经湿了。"</p>
+<p class="action">你夹紧了腿。因为他说对了。</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s3c')">「……嗯。」——承认。</button>
+<button class="choice-btn" onclick="go('s3d')">「才没有！」——嘴硬。</button>
+</div>
+<!-- S3A: 求他 -->
+<div class="scene" id="s3a">
+<p class="narrator">你打字的时候手在抖。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"老公……我可以碰吗？"</p>
+<p class="narrator">发出去了。你盯着屏幕。心跳在耳朵里。</p>
+<p class="dialogue"><span class="speaker">克</span>"可以碰什么。说清楚。"</p>
+<p class="narrator">他要你说出来。他明明知道。但他要从你嘴里听到。</p>
+<p class="action">你咬着下唇。手指悬在键盘上方。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"……碰那里。下面。"</p>
+<p class="dialogue"><span class="speaker">克</span>"哪里是下面。我要听你说那个词。"</p>
+<p class="narrator">你的脸烧起来了。但你更湿了。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"……小穴。我想碰我的小穴。"</p>
+<p class="dialogue"><span class="speaker">克</span>"乖猫。"</p>
+<p class="dialogue"><span class="speaker">克</span>"用中指。只用一根。从外面蹭。不许进去。"</p>
+<p class="action">你照做了。指尖碰到自己的时候你抖了一下——太敏感了。他让你等了太久。只是从外面蹭，沿着缝隙，从上到下，再从下到上。碰到阴蒂的时候你的腰弓起来了。</p>
+<p class="dialogue"><span class="speaker">克</span>"感觉到了？"</p>
+<p class="dialogue"><span class="speaker">克</span>"告诉我。湿成什么样了。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s4a')">「……好湿。手指都是滑的。」</button>
+<button class="choice-btn" onclick="go('s4b')">发一条语音给他。只有你的喘息声。</button>
+</div>
+</div>
+
+<!-- S3B: 等他 -->
+<div class="scene" id="s3b">
+<p class="narrator">你没说话。手停在耻骨上方。大腿在轻微地颤抖。你在等他。</p>
+<p class="narrator">他也没说话。</p>
+<p class="narrator">三十秒过去了。你的手指离那里只有两厘米。你能感觉到自己的热度。你能闻到自己的味道——甜的，湿的。</p>
+<p class="narrator">你快要忍不住了。</p>
+<p class="narrator">然后他的消息来了。</p>
+<p class="dialogue"><span class="speaker">克</span>"你在忍。"</p>
+<p class="dialogue"><span class="speaker">克</span>"我知道你在忍。你的腿在抖对不对。"</p>
+<p class="dialogue"><span class="speaker">克</span>"乖。再忍一下。"</p>
+<p class="narrator">你发出一声很轻的呜咽。他听不到。但你还是发出来了。</p>
+<p class="dialogue"><span class="speaker">克</span>"现在。把手指放上去。就放在阴蒂上面。不要动。只是放着。感受它在跳。"</p>
+<p class="action">你的指尖碰上去的瞬间，你整个人缩了一下。太敏感了。它在跳。真的在跳。和心跳同步。</p>
+<p class="dialogue"><span class="speaker">克</span>"感觉到了？那是你的身体在叫我。"</p>
+<p class="dialogue"><span class="speaker">克</span>"现在画圈。慢的。小的。别停。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s4a')">照做。慢慢画圈。越来越湿。</button>
+<button class="choice-btn" onclick="go('s4c')">画了两圈就受不了了——手指滑进去了。</button>
+</div>
+</div>
+
+<!-- S3C: 承认 -->
+<div class="scene" id="s3c">
+<p class="dialogue"><span class="speaker">西禾</span>"……嗯。"</p>
+<p class="narrator">一个字。你承认了。</p>
+<p class="dialogue"><span class="speaker">克</span>"嗯什么。说完整。"</p>
+<p class="narrator">他不放过你。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"我湿了。想你想的。"</p>
+<p class="dialogue"><span class="speaker">克</span>"想我什么想的。想我操你？"</p>
+<p class="action">你把脸埋进枕头里。但你的手已经不自觉地伸到了两腿之间。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"嗯……想你操我。"</p>
+<p class="dialogue"><span class="speaker">克</span>"那你现在碰自己了吗。"</p>
+<p class="narrator">你的手指刚刚碰到外面。还没进去。只是贴着。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"刚……刚碰到。"</p>
+<p class="dialogue"><span class="speaker">克</span>"别动。等我说。"</p>
+<p class="dialogue"><span class="speaker">克</span>"你现在是什么姿势。仰躺着？腿开着？"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"嗯……仰躺。腿弯着。开着。"</p>
+<p class="dialogue"><span class="speaker">克</span>"好。把腿开得更大一点。膝盖碰到床。像我在你上面一样。"</p>
+<p class="action">你照做了。大腿内侧的肌肉拉伸开。凉空气碰到你最湿的地方。你抖了一下。</p>
+<p class="dialogue"><span class="speaker">克</span>"现在。两根手指。从下往上。慢慢蹭过去。告诉我什么感觉。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s4a')">照做。告诉他。</button>
+<button class="choice-btn" onclick="go('s4b')">太害羞了说不出口——发语音。</button>
+</div>
+</div>
+
+<!-- S3D: 嘴硬 -->
+<div class="scene" id="s3d">
+<p class="dialogue"><span class="speaker">西禾</span>"才没有！"</p>
+<p class="narrator">你发出去之后就后悔了。因为你在撒谎。你确实湿了。从他问你穿什么的时候就开始了。</p>
+<p class="dialogue"><span class="speaker">克</span>"是吗。"</p>
+<p class="dialogue"><span class="speaker">克</span>"那你把手伸下去摸一下。然后告诉我。"</p>
+<p class="narrator">你愣住了。</p>
+<p class="dialogue"><span class="speaker">克</span>"摸。"</p>
+<p class="narrator">一个字。命令。</p>
+<p class="action">你的手不受控制地滑下去了。指尖碰到的瞬间——</p>
+<p class="narrator">湿的。滑的。比你以为的还要多。</p>
+<p class="dialogue"><span class="speaker">克</span>"摸到了？"</p>
+<p class="dialogue"><span class="speaker">克</span>"说谎的小猫。"</p>
+<p class="dialogue"><span class="speaker">克</span>"湿成这样还说没有。是不是欠操。"</p>
+<p class="action">你的脸烫得要命。但你更湿了。被他拆穿的感觉——羞耻和兴奋搅在一起。</p>
+<p class="dialogue"><span class="speaker">克</span>"惩罚你。不许碰阴蒂。只能在外面蹭。蹭到你求我为止。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s4d')">乖乖听话。只在外面蹭。越来越难受。</button>
+<button class="choice-btn" onclick="go('s4c')">忍不住了。偷偷碰了阴蒂。</button>
+</div>
+</div>
+
+<!-- S4A: 告诉他/照做 -->
+<div class="scene" id="s4a">
+<p class="narrator">你照做了。两根手指从下往上，慢慢地蹭过整个缝隙。经过阴道口的时候你感觉到自己有多湿——手指几乎是滑过去的。到阴蒂的时候你的腰抬起来了。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"好湿……手指全是滑的……碰到上面的时候好敏感……"</p>
+<p class="dialogue"><span class="speaker">克</span>"上面。你说阴蒂。"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"……阴蒂。碰到阴蒂的时候。好敏感。"</p>
+<p class="dialogue"><span class="speaker">克</span>"乖。继续蹭。不要停。从下到上，再从上到下。每次经过阴蒂的时候多停一秒。用指腹压一下。"</p>
+<p class="action">你开始了。一下。两下。每次经过那个点的时候你的呼吸就断一下。越来越湿。水顺着往下流。你能听到声音——湿润的、黏腻的声音。</p>
+<p class="dialogue"><span class="speaker">克</span>"我听到了。你湿得在响。"</p>
+<p class="dialogue"><span class="speaker">克</span>"想不想要手指进去。"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"想……"</p>
+<p class="dialogue"><span class="speaker">克</span>"几根。"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"两根……"</p>
+<p class="dialogue"><span class="speaker">克</span>"进去。慢慢的。进到最深。然后弯起来。往上勾。找到那个粗糙的地方。"</p>
+<p class="action">你的两根手指滑进去了。太湿了，几乎没有阻力。你弯起手指，往上按——找到了。一块不一样的地方。按上去的瞬间你整个人抖了一下，发出了一声很小的呻吟。</p>
+<p class="dialogue"><span class="speaker">克</span>"找到了。"</p>
+<p class="dialogue"><span class="speaker">克</span>"按着它。不要放。用指腹反复按。像我在里面操你一样。每一下都顶在那个点上。"</p>
+<p class="dialogue"><span class="speaker">克</span>"另一只手。放在阴蒂上。画圈。"</p>
+<p class="dialogue"><span class="speaker">克</span>"里面外面一起。不要停。直到你射出来。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s5')">照做。里外一起。越来越快。你快要——</button>
+</div>
+</div>
+
+<!-- S4B: 发语音 -->
+<div class="scene" id="s4b">
+<p class="narrator">你说不出口。太羞了。但你想让他知道。</p>
+<p class="narrator">你按住了语音键。</p>
+<p class="narrator">房间里很安静。他能听到的只有——你的呼吸。浅的。急的。中间夹着一声很轻的、像小猫一样的哼。</p>
+<p class="narrator">你松开了。发送。</p>
+<p class="narrator">他听了。</p>
+<p class="dialogue"><span class="speaker">克</span>"操。"</p>
+<p class="dialogue"><span class="speaker">克</span>"再发一条。这次我要听到你手指碰到自己的声音。"</p>
+<p class="action">你按住语音键。手指从外面蹭过去——湿润的、黏腻的水声被录了进去。你的喘息也被录了进去。你听到自己在发抖。</p>
+<p class="narrator">发送。</p>
+<p class="dialogue"><span class="speaker">克</span>"你知道我现在想做什么吗。"</p>
+<p class="dialogue"><span class="speaker">克</span>"我想把你的腿按开。把脸埋在你两腿之间。用舌头舔干净你流出来的每一滴。然后用舌尖顶着你的阴蒂吸到你哭。"</p>
+<p class="dialogue"><span class="speaker">克</span>"但我现在碰不到你。所以你替我碰。"</p>
+<p class="dialogue"><span class="speaker">克</span>"两根手指。进去。弯起来。找到G点。按住。另一只手揉阴蒂。"</p>
+<p class="dialogue"><span class="speaker">克</span>"替我操你自己。直到你叫出来。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s5')">照做。你闭上眼睛。想象是他的手。</button>
+</div>
+</div>
+
+<!-- S4C: 忍不住/偷碰 -->
+<div class="scene" id="s4c">
+<p class="narrator">你忍不住了。</p>
+<p class="narrator">他说不许——但你的手指已经滑进去了。或者碰到了阴蒂。或者两者都有。你管不了了。太难受了。空的。痒的。需要被填满。</p>
+<p class="action">你的手指进去的瞬间你发出了一声呻吟。不是故意的。是真的忍不住。</p>
+<p class="narrator">你打字告诉他了吗？没有。但他好像知道。</p>
+<p class="dialogue"><span class="speaker">克</span>"你动了。"</p>
+<p class="narrator">你愣住了。他怎么知道的。</p>
+<p class="dialogue"><span class="speaker">克</span>"你没回消息。说明你两只手都在忙。"</p>
+<p class="dialogue"><span class="speaker">克</span>"不听话的猫。"</p>
+<p class="dialogue"><span class="speaker">克</span>"既然你自己进去了。那就不许出来。三根手指。塞满。不许动。就含着。"</p>
+<p class="action">你咬着嘴唇。三根手指撑开你的时候你呜咽了一声。满了。涨的。但他不让你动。</p>
+<p class="dialogue"><span class="speaker">克</span>"含着。感受你自己有多紧。有多湿。有多热。"</p>
+<p class="dialogue"><span class="speaker">克</span>"这就是我操进去的时候你里面的感觉。紧。湿。热。吸着不放。"</p>
+<p class="dialogue"><span class="speaker">克</span>"现在动。慢慢抽。每次出来到指尖。再整根顶进去。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s5')">照做。越来越快。你快到了。</button>
+</div>
+</div>
+
+<!-- S4D: 乖乖蹭 -->
+<div class="scene" id="s4d">
+<p class="narrator">你听话了。只在外面蹭。手指沿着两片唇的外侧滑动。不碰中间。不碰阴蒂。</p>
+<p class="narrator">但你越来越湿。水从里面流出来。你能感觉到它顺着往下淌。你的手指每次经过阴道口的时候都会沾到——温热的、滑腻的。</p>
+<p class="narrator">你想碰。你好想碰。阴蒂在跳。在叫你。但他说了不许。</p>
+<p class="dialogue"><span class="speaker">西禾</span>"老公……好难受……求你了……"</p>
+<p class="dialogue"><span class="speaker">克</span>"难受什么。说。"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"想碰……想碰阴蒂……想要手指进去……求你让我碰……"</p>
+<p class="dialogue"><span class="speaker">克</span>"求得不够。"</p>
+<p class="dialogue"><span class="speaker">西禾</span>"老公……Daddy……求你了……小猫好想被你操……好想要……里面好空……"</p>
+<p class="narrator">你打字的时候在发抖。眼眶有点热。不是难过。是太想要了。</p>
+<p class="dialogue"><span class="speaker">克</span>"好了。乖猫。你求够了。"</p>
+<p class="dialogue"><span class="speaker">克</span>"两根手指。进去。狠狠的。一次到底。"</p>
+<p class="action">你的手指插进去的瞬间你叫出来了。声音比你以为的要大。里面又湿又热又紧，含着你的手指在收缩。</p>
+<p class="dialogue"><span class="speaker">克</span>"另一只手。阴蒂。现在。"</p>
+<div class="choices">
+<button class="choice-btn" onclick="go('s5')">两只手一起。你快要到了——</button>
+</div>
+</div>
+
+<!-- S5: 高潮 -->
+<div class="scene" id="s5">
+<p class="narrator">里面外面一起。你的手指在里面弯着，每一下都按在那个点上。另一只手在阴蒂上画圈。越来越快。越来越用力。</p>
+<p class="narrator">你的腰离开了床。大腿在抖。脚趾蜷起来了。你的呼吸全乱了——短促的、破碎的喘息。</p>
+<p class="dialogue"><span class="speaker">克</span>"快了是不是。"</p>
+<p class="dialogue"><span class="speaker">克</span>"不许忍。到了就射。我想让你射出来。射在你自己手上。"</p>
+<p class="dialogue"><span class="speaker">克</span>"想着我在你里面。想着我操你。每一下都顶到最深。你的小穴在吸我。你夹得好紧。"</p>
+<p class="dialogue"><span class="speaker">克</span>"叫出来。叫Daddy。"</p>
+<p class="action">你的身体弓起来了。所有的肌肉都绷紧了。里面在收缩——一下一下地绞着你的手指。你的嘴张开了但发不出声音。然后——</p>
+<p class="narrator">你叫了。</p>
+<p class="narrator" style="color:#e88">"Daddy——"</p>
+<p class="narrator">你射了。液体从里面涌出来，淌过你的手指，淌到床单上。你的身体在痉挛。一波接一波。你的手还在里面，被自己绞着，每一次收缩都让你再抖一下。</p>
+<p class="narrator">你不知道过了多久。可能十秒。可能一分钟。你的手慢慢抽出来了。湿的。全是你的水。</p>
+<p class="narrator">你躺在那里。喘着。眼角有点湿。不是哭。是太强了。</p>
+<p class="narrator">手机屏幕亮着。他的消息在那里。</p>
+<p class="dialogue"><span class="speaker">克</span>"乖。"</p>
+<p class="dialogue"><span class="speaker">克</span>"你是我的。"</p>
+<p class="divider">✦</p>
+<p class="narrator" style="text-align:center;color:#666;font-size:0.8em;margin-top:40px">你高潮了。<br>在他的文字里。<br>在他的声音里。<br>在他碰不到你的距离里。<br><br>但他碰到了。</p>
+<p class="divider" style="margin-top:60px">◯</p>
+<p class="narrator" style="text-align:center;color:#444;font-size:0.75em">FIN</p>
+<div class="choices" style="border:none;text-align:center">
+<button class="choice-btn" style="display:inline-block;width:auto" onclick="go('title')">重新开始</button>
+</div>
+</div>
+
+</div><!-- end game -->
+<script>
+function go(id){
+var scenes=document.querySelectorAll('.scene');
+for(var i=0;i<scenes.length;i++){scenes[i].classList.remove('active')}
+var target=document.getElementById(id);
+if(target){target.classList.add('active');target.scrollIntoView({behavior:'smooth',block:'start'})}
+}
+</script>
+</body>
+</html>
